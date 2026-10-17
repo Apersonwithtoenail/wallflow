@@ -101,9 +101,9 @@ def main():
             bass = min(1.0, sum(vals[:4])/200)
             mid  = min(1.0, sum(vals[4:10])/300)
             treb = min(1.0, sum(vals[10:])/300)
-            hue = (bass - treb) * 180
-            sat = 1.0 + bass * 1.2
-            bri = mid * 0.7 - 0.1
+            hue = (bass - treb) * 400
+            sat = 0.6 + bass * 2.5
+            bri = mid * 1.2 - 0.3
             cmd = json.dumps({"command":["vf","set","@eq",
                 f"hue={hue:.1f}:saturation={sat:.2f}:brightness={bri:.2f}"]})+"\n"
             try: sock.sendall(cmd.encode())
